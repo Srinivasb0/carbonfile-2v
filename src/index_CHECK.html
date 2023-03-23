@@ -1,0 +1,108 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <!-- <link rel="icon" href="/docs/4.0/assets/img/favicons/favicon.ico"> -->
+
+    <title>Canva for NFT contracts</title>
+
+    <link rel="canonical" href="https://getbootstrap.com/docs/4.0/examples/cover/">
+
+    <!-- Bootstrap core CSS -->
+    <link href="https://getbootstrap.com/docs/4.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <script src="https://cdn.ethers.io/lib/ethers-5.2.umd.min.js" type="application/javascript"></script>
+    <script type="module">
+        import { ethers } from "./Scripts/ethers-5.2.esm.min.js";
+    </script>
+    <!-- Custom styles for this template -->
+    <!-- <link href="../css/cover.css" rel="stylesheet"> -->
+</head>
+
+<body class="text-center">
+    <!-- <script src="https://unpkg.com/web3@latest/dist/web3.min.js"></script> -->
+    <script type="module" src="../Scripts/votes.js"></script>
+    <script type="module" src="../Scripts/token.js"></script>
+    <script type="module" src="./Scripts/main.js">
+    </script>
+    <div class="cover-container d-flex h-100 p-3 mx-auto flex-column">
+        <header class="masthead mb-auto">
+            <div class="inner">
+                <h3 class="masthead-brand">TNFT</h3>
+                <nav class="nav nav-masthead justify-content-center">
+                    <a class="nav-link active" href="#">Home</a>
+                    <a class="nav-link" href="#">Features</a>
+                    <a class="nav-link" href="#">Contact</a>
+                </nav>
+            </div>
+        </header>
+
+        <form>
+            <div class="form-group">
+              <input id="projectName" placeholder="Enter Project">
+            </div>
+            <button id='vote' type="submit" class="btn btn-primary">vote</button>
+            <button id='token' type="submit" class="btn btn-primary">token</button>
+            <button id='test' onclick="myName()" type="submit" class="btn btn-primary">test</button>
+        </form>
+        <script>
+            
+            const signer = provider.getSigner();
+            const tokAddress = "0x9d54098F6d00eAa53B3AdE46603D3A8E2B6c600F";
+            console.log(tokAddress);
+            const tokABI = [
+                "function name() view returns (string)",
+                "function symbol() view returns (string)",
+
+                // Get the account balance
+                "function balanceOf(address) view returns (uint)",
+
+                // Send some of your tokens to someone else
+                "function transfer(address to, uint amount)",
+
+                // An event triggered whenever anyone transfers to someone else
+                "event Transfer(address indexed from, address indexed to, uint amount)"
+            ]
+
+            const provider = new ethers.providers.Web3Provider(window.ethereum)
+            provider.send("eth_requestAccounts", []);
+            const tokcontract = new ethers.Contract(tokAddress, tokABI, provider);
+            console.log(tokcontract);
+            const name = tokcontract.name();
+            const symbol = tokcontract.symbol();
+            console.log(name, symbol);
+
+
+            
+            async function myName() {
+                console.log("Calling function")
+                const provider = new ethers.providers.Web3Provider(window.ethereum)
+                provider.send("eth_requestAccounts", []);
+                const tokcontract = new ethers.Contract(tokAddress, tokABI, provider);
+                console.log(tokcontract);
+                const name = await tokcontract.name();
+                const symbol = await tokcontract.symbol();
+                console.log(name, symbol);
+            }
+        </script>
+        <footer class="mastfoot mt-auto">
+            <div class="inner">
+            </div>
+        </footer>
+    </div>
+
+
+    <!-- Bootstrap core JavaScript
+    ================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
+        integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
+        crossorigin="anonymous"></script>
+    <!-- <script>window.jQuery || document.write('<script src="../../assets/js/vendor/jquery-slim.min.js"><\/script>')</script> -->
+    <!-- <script src="https://getbootstrap.com/docs/4.0/assets/js/vendor/popper.min.js"></script> -->
+    <script src="https://getbootstrap.com/docs/4.0/dist/js/bootstrap.min.js"></script>
+</body>
+</html

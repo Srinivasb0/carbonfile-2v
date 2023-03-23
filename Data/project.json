@@ -1,0 +1,11 @@
+{
+    "owner": "0xabc",
+    "type": "Green Pea Flower",
+    "location": ["lat", "lon", "x", "y"],
+    "title": "Kimberly rain forest",
+    "developer": "Kimberly Science",
+    "date": "02/02/23",
+    "description": "It takes 40 days from emergence to flower, when the temperature is in optimal range 12-18.",
+    "soc": "NA",
+    "CC": "NA"
+  }
