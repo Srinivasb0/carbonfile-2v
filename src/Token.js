@@ -44,31 +44,14 @@ function Token() {
     <Table
     header={
       <TableRow>
-        <TableHeader title="Tokens" />
+        <TableHeader title="CID" />
       </TableRow>
     }
   >
-      <TableRow>
-      <TableCell>
-        <Text> <IdentityBadge
-      customLabel="QmWrQETBMSmAPe6ccFBX8sXGTtMnFZxSLFvJgVeNGoUqeC"
-      entity="0x7F180e1712262701C9e2185584778a349db22775"
-      connectedAccount
-    /></Text>
-      </TableCell>
-      <TableCell>
-      <TokenAmount
-      address="QmWrQETBMSmAPe6ccFBX8sXGTtMnFZxSLFvJgVeNGoUqeC"
-      amount="1"
-      decimals={0}
-      symbol="CFTK"
-    />
-      </TableCell>
-    </TableRow>
     <TableRow>
       <TableCell>
         <Text> <IdentityBadge
-      customLabel="0xA03ab8a9d99F3779085BCc528b35EaCD949aeC1e"
+      customLabel="QmWrQETBMSmAPe6ccFBX8sXGTtMnFZxSLFvJgVeNGoUqeC"
       entity="0xA03ab8a9d99F3779085BCc528b35EaCD949aeC1e"
       connectedAccount
     /></Text>
@@ -76,7 +59,7 @@ function Token() {
       <TableCell>
         <Text><TokenAmount
       address="0x54cf9F316Bd8402d58A7d9a525Dc01A51c830244"
-      amount="1"
+      amount="3"
       decimals={0}
       symbol="CFTK"
     /></Text>
