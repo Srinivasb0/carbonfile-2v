@@ -22,7 +22,7 @@ const tokABI = [
   // total supply
   "function totalSupply() view returns(uint)",
 ]
-const tokAddress = "0xC52ECed404E39fdCCda7eD9FA84B8333ff06CeAC";
+const tokAddress = "0x862078ADe66a9a7686A051393bE910cf45365EdA";
 
   const provider = new ethers.providers.Web3Provider(window.ethereum)
   provider.send("eth_requestAccounts", []);
